@@ -1,5 +1,6 @@
 const itemsContainer = document.getElementById("itemsContainer");
 const shoppingCart = document.getElementById("shoppingCart");
+const totalPrice = document.getElementById("totalPrice");
 const itemObj = [
     {
         name: "Finish coding challenge", price: 1
@@ -44,7 +45,12 @@ function renderToCart () {
         </div>
         `;
      });
-     shoppingCart.innerHTML = itemsHTML;
+    shoppingCart.innerHTML = itemsHTML;
+    // total price function - total price of all items in the basket
+    let total = 0;
+    cartItems.forEach(function (item) {
+        total += item.price
+    })
+    
+    totalPrice.innerText = total;
 }
-// remove from basket function - item disappears from the basket
-// total price function - total price of all items in the basket
